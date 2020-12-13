@@ -164,8 +164,13 @@ function doRectanglesOverlap(/* rect1, rect2 */) {
  *   { center: { x:0, y:0 }, radius:10 },  { x:10, y:10 }   => false
  *
  */
-function isInsideCircle(/* circle, point */) {
-  throw new Error('Not implemented');
+function isInsideCircle(circle, point) {
+  const r = circle.radius ** 2;
+  const d = (point.x - circle.center.x) ** 2 + (point.y - circle.center.y) ** 2;
+  if (d < r) {
+    return true;
+  }
+  return false;
 }
 
 
@@ -180,8 +185,24 @@ function isInsideCircle(/* circle, point */) {
  *   'abracadabra'  => 'c'
  *   'entente' => null
  */
-function findFirstSingleChar(/* str */) {
-  throw new Error('Not implemented');
+function findFirstSingleChar(str) {
+  const arr = str.trim().split('');
+  const filterArr = arr.filter((item, index, arr_) => {
+    let count = 0;
+    arr_.forEach((el) => {
+      if (el === item) {
+        count += 1;
+      }
+    });
+    if (count === 1) {
+      return item;
+    }
+    return false;
+  });
+  if (filterArr.length > 0) {
+    return filterArr[0];
+  }
+  return null;
 }
 
 
@@ -224,8 +245,8 @@ function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
  * 'rotator' => 'rotator'
  * 'noon' => 'noon'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  return str.split('').reverse().join('');
 }
 
 
@@ -241,8 +262,8 @@ function reverseString(/* str */) {
  *   87354 => 45378
  *   34143 => 34143
  */
-function reverseInteger(/* num */) {
-  throw new Error('Not implemented');
+function reverseInteger(num) {
+  return num.toString().split('').reverse().join('');
 }
 
 
