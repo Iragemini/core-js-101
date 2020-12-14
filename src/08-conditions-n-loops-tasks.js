@@ -378,14 +378,8 @@ function toNaryString(num, n) {
  *   ['/web/assets/style.css', '/.bin/mocha',  '/read.me'] => '/'
  *   ['/web/favicon.ico', '/web-scripts/dump', '/webalizer/logs'] => '/'
  */
-function getCommonDirectoryPath(pathes) {
-  let result = '';
-  for (let i = 0; i < pathes.length; i += 1) {
-    let subArr = pathes[i].split('/');
-    for (let j = 0; j < subArr.length; i += 1) {
-      
-    }
-  }
+function getCommonDirectoryPath(/* pathes */) {
+  throw new Error('Not implemented');
 }
 
 
